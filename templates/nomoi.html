@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask tutorial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: rgb(119, 111, 101);
+            text-align: center;
+        }
+        .search-form {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Νομοι</h1>
+        <div class="search-form">
+            <form action="" method="GET">
+                <input type="text" name="query" placeholder="Αναζήτηση">
+                <button>Αναζήτηση!</button>
+            </form>
+        </div>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>ΑΑ</th>
+                    <th>Όνομα</th>
+                    <th>Έδρα</th>
+                    <th>Εμβαδόν</th>
+                    <th>Πληθυσμός</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for nomos in nomoi %}
+                <tr>
+                    <td>{{ nomos['id'] }}</td>
+                    <td>{{ nomos['name'] }}</td>
+                    <td>{{ nomos['capital'] }}</td>
+                    <td>{{ nomos.area }}</td>
+                    {% if nomos.population > 200000 %}
+                        <td><b>{{ nomos.population }}</b></td>
+                    {% else %}
+                        <td>{{ nomos.population }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

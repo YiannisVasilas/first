@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask tutorial</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+        .joke-div {
+            margin: 10px;
+            border: 1px solid black;
+            padding: 10px;
+            width: 30%;
+        }
+        .weather-div {
+            margin: 10px;
+            border: 1px solid black;
+            padding: 10px;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    Hello world!
+    <div class="joke-div">
+        <b>Τυχαίο ανέκδοτο:</b>
+        {{ joke.value }}
+    </div>
+    <div class="weather-div">
+    <form action="">
+        <select name="city" id="city">
+            <option value="Αθήνα">Αθήνα</option>
+            <option value="Θεσσαλονίκη">Θεσσαλονίκη</option>
+            <option value="Ηράκλειο">Ηράκλειο</option>
+            <option value="Νάουσα">Νάουσα</option>
+            <option value="Αίγιο">Αίγιο</option>
+            <option value="Ηγουμενίτσα">Ηγουμενίτσα</option>
+            <option value="Πάτρα">Πάτρα</option>
+            <option value="Άργος">Άργος</option>
+            <option value="Άρτα">Άρτα</option>
+            <option value="Λάρισα">Λάρισα</option>
+            <option value="Τρίκαλα">Τρίκαλα</option>
+            <option value="Φαρκαδόνα">Φαρκαδόνα</option>
+            <option value="Καρδίτσα">Καρδίτσα</option>
+        </select>
+        <button>ΟΚ</button>
+    </form>
+        <b>Ο καιρός σήμερα ({{ weather['name'] }}):</b>
+        {{ weather['weather'][0]['description'].capitalize() }}
+        ({{ weather['main']['temp'] }}°)
+    </div>
+
+    <iframe width="230" height="152" src="https://www.youtube.com/embed/DBjkUe98yQY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</body>
+</html>
